@@ -1,11 +1,16 @@
 import datetime 
- 
-from django.template.loader import get_template 
-from django.template import Context 
-from django.http import HttpResponse 
+from django.shortcuts import render 
  
 def fecha_actual(request): 
     ahora = datetime.datetime.now() 
-    t = get_template('fecha_actual.html') 
-    html = t.render(Context({'fecha_actual': ahora})) 
-    return HttpResponse(html) 
+    return render(request, 'fechas/fecha_actual.html', {'fecha_actual': ahora}) 
+
+
+def horas_adelante(request, horas): 
+    try: 
+        horas = int(horas) 
+    except ValueError: 
+        raise Http404() 
+    dt = datetime.datetime.now() + datetime.timedelta(hours=horas) 
+    return render(request, 'horas_adelante.html', {'hora_siguiente': dt, 'horas': horas })
+
