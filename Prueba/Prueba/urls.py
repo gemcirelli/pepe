@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from Prueba.views import fecha_actual 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^fecha/', fecha_actual),
 ]
