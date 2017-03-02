@@ -14,3 +14,5 @@ def horas_adelante(request, horas):
     dt = datetime.datetime.now() + datetime.timedelta(hours=horas) 
     return render(request, 'horas_adelante.html', {'hora_siguiente': dt, 'horas': horas })
 
+
+

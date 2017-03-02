@@ -28,7 +28,7 @@ class Autor(models.Model):
 
 
     def __str__(self):    
-        return '%s %s' (self.nombre,self.apellidos)
+        return '%s %s'%(self.nombre,self.apellidos)
 
 class Libro(models.Model): 
     titulo = models.CharField(max_length=100) 
